@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import React, { useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import Row from 'react-bootstrap/Row'
@@ -42,7 +42,7 @@ function ProductScreen() {
       dispatch({ type: "FETCH REQUEST" });
       try {
         const result = await axios.get(`/api/products/slug/${slug}`);
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
@@ -53,7 +53,7 @@ function ProductScreen() {
 
   const {state, dispatch: ctxDispatch} = useContext(Store);
   const {cart} = state;
-  const addToCartHandler = async () => {
+  const addToCartHandler = async() => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
@@ -61,7 +61,7 @@ function ProductScreen() {
       window.alert('Sorry. Product is out of stock');
       return;
     }
-    ctxDispatch({
+    ctxDispatch({ 
       type: 'CART_ADD_ITEM',
       payload: {...product, quantity},
     });

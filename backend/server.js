@@ -11,7 +11,7 @@ app.get('/api/products/slug/:slug', (req, res) => {
     const product = data.products.find((x) => x.slug === req.params.slug);
     if(product)
     {
-        res.send(product);
+        res.send(product);  
     }
 
     else
@@ -25,7 +25,7 @@ app.get('/api/products/:id', (req, res) => {
     if(product)
     {
         res.send(product);
-    }
+    }  
 
     else
     {

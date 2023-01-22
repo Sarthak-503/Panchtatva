@@ -22,7 +22,7 @@ function App() {
       <header>
       <Navbar bg="dark" variant="dark">
       <Container>
-      <LinkContainer to="/">
+      <LinkContainer to="/"> 
       <Navbar.Brand>Panchtatva</Navbar.Brand>
       </LinkContainer>
       <Nav className="me-auto">
