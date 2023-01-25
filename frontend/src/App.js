@@ -254,9 +254,6 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
-          <div className="text-center">All Rights Reserved</div>
-        </footer>
       </div>
     </BrowserRouter>
   );
